@@ -2,8 +2,6 @@ import * as core from '@diffusionstudio/core';
 
 export const composition = new core.Composition();
 
-
-// Array of video URLs
 const videoUrls = [
   'https://player.vimeo.com/progressive_redirect/playback/932968715/rendition/720p/file.mp4?loc=external&signature=96804b58e0c6cf311e32c9338f073e064e0130fad984109edd934b551484df05',
   'https://player.vimeo.com/progressive_redirect/playback/932968538/rendition/720p/file.mp4?loc=external&signature=d0a81361234a1798fe95a3885cfd30857bc32ea08f8c90e008c9585fffb9f03f',
@@ -22,15 +20,17 @@ const videoUrls = [
   'https://player.vimeo.com/progressive_redirect/playback/1071467693/rendition/1080p/file.mp4?loc=external&signature=576e7ed5158b56d29bdcc67a4a2c258e6b7d49bd31fd4d32caaf0de3d4defc93',
 ];
 
-// Create sequential layers
-const videoLayer = composition.createLayer().sequential();
+const setup = async () => {
+  const videoLayer = composition.createLayer().sequential()
 
-// Add video clips to the layer
-for (const url of videoUrls) {
-  await videoLayer.add(
-    new core.VideoClip(url, {
-      height: '100%',
-      position: 'center',
-    })
-  );
+  for (const url of videoUrls) {
+    await videoLayer.add(
+      new core.VideoClip(url, {
+        height: '100%',
+        position: 'center',
+      })
+    )
+  }
 }
+
+setup()
