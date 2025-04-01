@@ -2,6 +2,7 @@ import * as core from '@diffusionstudio/core';
 
 export const composition = new core.Composition();
 
+
 // Array of video URLs
 const videoUrls = [
   'https://player.vimeo.com/progressive_redirect/playback/932968715/rendition/720p/file.mp4?loc=external&signature=96804b58e0c6cf311e32c9338f073e064e0130fad984109edd934b551484df05',
